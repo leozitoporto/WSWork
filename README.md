@@ -1,17 +1,7 @@
 # API Teste WSWORK com NodeJS e Typescript + Docker
 
-## Docker Compose
 
-Execute o comando abaixo (no diretório raiz do projeto):
-
-```bash
-
-docker-compose up
-
-```
-
-## Para testar as rotas, segue um arquivo como exemplo na pasta raíz do projeto com o nome de "Collection_frete_rapido.json"
-
+## Adicionar um arquivo ".env" na raiz do projeto com as seguintes informações:
 ```bash
 
 #POSTGRES
@@ -31,7 +21,18 @@ PORT=3000
 
 ```
 
-## Adicionar um arquivo ".env" na raiz do projeto com as seguintes informações:
+## Docker Compose
+
+Execute o comando abaixo (no diretório raiz do projeto):
+
+```bash
+
+docker-compose up
+
+```
+
+## Para testar as rotas, segue um arquivo como exemplo na pasta raíz do projeto com o nome de "Collection_frete_rapido.json"
+
 
 - Importar "Collection_wswork.json" no Insomnia ou Postman para testes.
 - Para testar a rota principal onde devolve o json solicitado utilizar a rota: http://0.0.0.0:3000/search-car?q=&page=1
