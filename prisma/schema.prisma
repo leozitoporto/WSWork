@@ -1,0 +1,42 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Marca {
+  id         String   @id @default(uuid())
+  nome_marca String   @unique
+  modelos    Modelo[]
+
+  @@map("marcas")
+}
+
+model Modelo {
+  id         String  @id @default(uuid())
+  nome       String  @unique
+  valor_fipe Decimal
+
+  marca    Marca   @relation(fields: [marca_id], references: [id])
+  marca_id String
+  carros   Carro[]
+
+  @@map("modelos")
+}
+
+model Carro {
+  id                 String   @id @default(uuid())
+  timestamp_cadastro DateTime @default(now())
+  ano                Int      @default(4)
+  combustivel        String
+  num_portas         Int      @default(2)
+  cor                String
+
+  modelo    Modelo @relation(fields: [modelo_id], references: [id])
+  modelo_id String
+
+  @@map("carros")
+}

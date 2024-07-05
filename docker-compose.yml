@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  postgres:
+    container_name: ${HOST_POSTGRES_CONTAINER}
+    image: postgres
+    environment:
+      POSTGRES_USER: ${USER_POSTGRES}
+      POSTGRES_PASSWORD: ${PASSWORD_POSTGRES}
+      POSTGRES_DB: ${DATABASE_POSTGRES}
+    volumes:
+      - ./pg_data:/var/lib/postgresql/data
+    ports:
+      - '${PORT_POSTGRES:-5432}:5432'
+
+  app:
+    container_name: api_wswork
+    image: node
+    command: bash -c "cd /usr/app && npm install && npx prisma generate && npx prisma migrate dev && npm run dev"
+    ports:
+      - '${PORT:-3000}:3000'
+    volumes:
+      - .:/usr/app

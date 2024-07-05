@@ -1,0 +1,30 @@
+{
+  "name": "api_test_docker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsx watch src/server.ts",
+    "start": "node build/server.js",
+    "build": "tsup src --out-dir build",
+    "prisma-migrate-dev": "docker exec api_wswork npx prisma migrate dev",
+    "prisma-studio": "docker exec api_wswork npx prisma studio"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.10.5",
+    "dotenv": "^16.3.1",
+    "prisma": "^5.15.1",
+    "tsup": "^8.0.1",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.15.1",
+    "fastify": "^4.25.2",
+    "zod": "^3.22.4"
+  }
+}
