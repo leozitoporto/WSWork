@@ -22,8 +22,8 @@ PORT=3000
 ```
 
 ## Docker Compose
-
-Execute o comando abaixo (no diretório raiz do projeto):
+Para subir a API e o Banco de dados Postgres em um container do Docker,
+execute o comando abaixo (no diretório raiz do projeto):
 
 ```bash
 
